@@ -577,6 +577,170 @@
       transform: scale(0.98);
     }
 
+    /* ========== 密码弹窗 ========== */
+    .password-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .password-modal.show {
+      display: flex;
+    }
+
+    .password-content {
+      background: var(--card-bg);
+      border-radius: 0;
+      padding: 32px 24px;
+      text-align: center;
+      max-width: 320px;
+      width: 90%;
+      animation: fadeIn 0.3s ease;
+      border: 3px solid var(--primary);
+      box-shadow: 6px 6px 0 var(--primary-dark);
+    }
+
+    .password-content h3 {
+      font-family: 'Courier New', monospace;
+      margin-bottom: 16px;
+      color: var(--primary-dark);
+    }
+
+    .password-content .pay-info {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .password-content .wechat-info {
+      background: #FFF5F8;
+      border: 2px dashed var(--primary);
+      border-radius: 0;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .password-content .wechat-info .label {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .password-content .wechat-info .id {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+    }
+
+    .password-input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .password-input-group input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #ddd;
+      border-radius: 0;
+      font-size: 16px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 4px;
+      text-align: center;
+      outline: none;
+    }
+
+    .password-input-group input:focus {
+      border-color: var(--primary);
+    }
+
+    .password-input-group button {
+      padding: 12px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 0;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Courier New', monospace;
+      box-shadow: 3px 3px 0 var(--primary-dark);
+    }
+
+    .password-input-group button:active {
+      transform: translate(3px, 3px);
+      box-shadow: 0 0 0 var(--primary-dark);
+    }
+
+    .password-error {
+      color: #FF6B6B;
+      font-size: 13px;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    .password-error.show {
+      display: block;
+    }
+
+    /* ========== 完整报告区域 ========== */
+    .full-report-section {
+      display: none;
+      border: 3px solid var(--primary);
+      border-radius: 0;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 6px 6px 0 var(--primary);
+      background: linear-gradient(135deg, #FFF8F0, #FFF5F8);
+    }
+
+    .full-report-section.show {
+      display: block;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .full-report-section h3 {
+      font-family: 'Courier New', monospace;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      border-bottom: 2px dashed var(--primary);
+      padding-bottom: 8px;
+    }
+
+    .full-report-section .section-block {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .full-report-section .section-block:last-child {
+      border-bottom: none;
+    }
+
+    .full-report-section .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .full-report-section .section-content {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
     /* ========== 分享弹窗 ========== */
     .share-modal {
       display: none;
@@ -597,16 +761,19 @@
 
     .share-content {
       background: var(--card-bg);
-      border-radius: var(--radius);
+      border-radius: 0;
       padding: 32px 24px;
       text-align: center;
       max-width: 320px;
       width: 90%;
       animation: fadeIn 0.3s ease;
+      border: 3px solid var(--primary);
+      box-shadow: 6px 6px 0 var(--primary-dark);
     }
 
     .share-content h3 {
       margin-bottom: 16px;
+      font-family: 'Courier New', monospace;
     }
 
     .share-options {
@@ -624,30 +791,40 @@
     .share-option .icon {
       width: 48px;
       height: 48px;
-      border-radius: 50%;
+      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 24px;
       margin-bottom: 6px;
+      border: 2px solid;
     }
 
-    .share-option:nth-child(1) .icon { background: #07C160; }
-    .share-option:nth-child(2) .icon { background: #E8A0BF; }
-    .share-option:nth-child(3) .icon { background: #FF6B6B; }
+    .share-option:nth-child(1) .icon { background: #07C160; border-color: #059a4c; }
+    .share-option:nth-child(2) .icon { background: #E8A0BF; border-color: #d4789c; }
+    .share-option:nth-child(3) .icon { background: #FF6B6B; border-color: #e55555; }
 
     .share-option span {
       font-size: 12px;
       color: var(--text-light);
+      font-family: 'Courier New', monospace;
     }
 
     .close-modal {
       background: none;
-      border: none;
+      border: 2px solid #ddd;
+      border-radius: 0;
       font-size: 14px;
       color: var(--text-light);
       cursor: pointer;
-      padding: 8px;
+      padding: 8px 24px;
+      font-family: 'Courier New', monospace;
+      box-shadow: 3px 3px 0 #ddd;
+    }
+
+    .close-modal:active {
+      transform: translate(3px, 3px);
+      box-shadow: 0 0 0 #ddd;
     }
 
     /* ========== 底部 ========== */
@@ -722,6 +899,24 @@
 
     <!-- 结果页 -->
     <div class="result-page" id="resultPage"></div>
+  </div>
+
+  <!-- 密码弹窗 -->
+  <div class="password-modal" id="passwordModal">
+    <div class="password-content">
+      <h3>🔓 解锁完整报告</h3>
+      <p class="pay-info">添加微信付款后获取解锁密码<br>完整版包含：童年模式分析 · 情绪触发点<br>沟通指南 · 恋爱时间线 · 成长计划</p>
+      <div class="wechat-info">
+        <div class="label">👇 添加微信获取密码 👇</div>
+        <div class="id" id="wechatId">love_test_2024</div>
+      </div>
+      <div class="password-input-group">
+        <input type="text" id="passwordInput" placeholder="输入密码" maxlength="20">
+        <button onclick="verifyPassword()">解锁</button>
+      </div>
+      <div class="password-error" id="passwordError">密码错误，请检查后重试</div>
+      <button class="close-modal" onclick="closePasswordModal()">关闭</button>
+    </div>
   </div>
 
   <!-- 分享弹窗 -->
@@ -962,8 +1157,62 @@
           "习惯被动等待，不敢主动表达喜欢"
         ],
         match: "脸皮厚、不怕你冷脸的人。能看穿你的逞强，坚持留在你身边。最佳搭配：🔥烈焰鸟、🌊深海鲸",
-        growth: "你的刺保护了你，但也挡住了爱你的人。试着拔掉几根刺，让阳光照进来。"
+        growth: "你的刺保护了你，但也挡住了爱你的人。试着拔掉几根刺，让阳光照进来。",
+        fullReport: {
+          childhoodPattern: '你在感情里的傲娇和试探，很可能来自童年时期的情感模式。也许小时候你表达需求时没有得到及时的回应，或者你看到过身边人因为太「好说话」而被欺负。于是你学会了用「不想要」来保护自己，用「无所谓」来避免失望。这不是你的错，这是你在当时学会的生存策略。',
+          triggerPoints: '当对方：\n• 没有秒回你的消息 → 你会想「是不是对我不感兴趣了」\n• 夸了别的女生/男生 → 你会嘴上说「挺好的啊」但心里酸酸的\n• 说「随便你」→ 其实你内心希望对方坚持选你\n• 太热情主动 → 你反而会后退，觉得「太容易得到不珍惜」',
+          communicationGuide: '试试这样说：\n❌「随便你」→ ✅「我想听你的想法，但我也希望你知道我其实挺想选XX的」\n❌「不用了」→ ✅「我有点犹豫，你能再坚持一下吗？」\n❌「你去找别人吧」→ ✅「我有点难过，需要你哄哄我」',
+          loveTimeline: '第1个月：互相吸引，但你已经开始试探\n第2-3个月：如果对方通过了你的「考验」，你会开始信任\n第3-6个月：你才真正开始放松，展现真实的自己\n6个月以后：如果你还在这段关系里，说明你是认真的',
+          idealPartner: '你需要一个「情绪稳定+脸皮厚」的人。ta不会被你的冷脸吓跑，能看穿你的逞强，在你嘴硬的时候依然温柔地留在你身边。ta不需要完美，但需要有耐心读懂你的「反话」。',
+          growthPlan: '第一步：觉察自己的「嘴硬时刻」——下次想说反话时，停顿3秒\n第二步：从小事开始练习直接表达——「我想吃火锅」而不是「随便」\n第三步：允许自己脆弱——在对方面前哭一次，你会发现天不会塌\n第四步：建立「安全感账户」——每次对方让你安心，就记下来，积累信任'
+        }
       }
+    };
+
+    // 为其他5种人格也添加完整报告
+    personalities.butterfly.fullReport = {
+      childhoodPattern: '你的独立和洒脱，是一种保护色。也许你从小就学会了「自己的事情自己做」，也许你见过依赖别人却失望的例子。你相信只有靠自己才最安全，爱情再美好也不能让它成为你的全部。',
+      triggerPoints: '当对方：\n• 太黏人，总是想知道你在哪 → 你会觉得窒息\n• 查你的手机/社交账号 → 你会非常反感\n• 要求你放弃某些朋友或爱好 → 你会直接拒绝\n• 说「你好像不需要我」→ 其实你说对了，但你心里会有一丝愧疚',
+      communicationGuide: '试试这样说：\n❌「我需要空间」→ ✅「我很享受和你在一起，但我也需要独处的时间充电」\n❌「别管我」→ ✅「我知道你是关心我，但我习惯自己处理」\n❌ 不回消息 → ✅「刚才在忙，现在有空了，怎么啦？」',
+      loveTimeline: '第1个月：轻松愉快，像朋友一样相处\n第2-3个月：如果对方给你足够的空间，你会开始依赖\n第3-6个月：你可能会突然害怕「我是不是太依赖ta了」\n6个月以后：你学会了在亲密和独立之间找到平衡',
+      idealPartner: '你需要一个「同样独立」的人。ta有自己的生活、朋友和爱好，不会把全部重心放在你身上。你们在一起时很亲密，分开时各自精彩。最佳搭配：🌊深海鲸（给你空间）、☀️向日葵（温暖但不黏人）',
+      growthPlan: '第一步：允许自己偶尔依赖——下次遇到困难，试着对ta说「我需要你」\n第二步：表达脆弱——告诉ta你害怕什么，而不是假装什么都不在乎\n第三步：练习「在一起」——不是物理上的，而是情感上的靠近\n第四步：记住，真正的自由不是没有羁绊，而是有人愿意给你自由'
+    };
+
+    personalities.flame.fullReport = {
+      childhoodPattern: '你的热情和直接，来自你对爱的真诚相信。你见过或者体验过那种「爱就要大声说出来」的环境，你相信感情不应该藏着掖着。你不怕受伤，因为你相信即使这段失败了，下一段会更好。',
+      triggerPoints: '当对方：\n• 不回消息超过半天 → 你会直接打电话或者问「怎么了」\n• 说「我想一个人静静」→ 你会觉得「是不是我做错了什么」\n• 态度忽冷忽热 → 你会很烦躁，要么逼ta说清楚要么直接走人\n• 太慢热 → 你会失去耐心，觉得「到底喜不喜欢我」',
+      communicationGuide: '试试这样说：\n❌「你到底怎么想的？」→ ✅「我感受到你最近有点不一样，能和我聊聊吗？」\n❌ 连环发消息 → ✅ 发一条，等2小时，没回再发一条\n❌「不喜欢就算了」→ ✅「我有点不确定你的想法，可以告诉我吗？」',
+      loveTimeline: '第1周：你就已经投入了100%的热情\n第1个月：如果对方回应积极，你们会非常甜蜜\n第2-3个月：你的热情可能会让对方有点压力\n第3个月以后：学会把热情转化为稳定的陪伴',
+      idealPartner: '你需要一个「能跟上你节奏」的人。ta不怕你的热情，能和你一起疯一起闹，但在你冲动时也能拉住你。太闷、太慢热的人会让你觉得「谈了个寂寞」。最佳搭配：🦋自由蝶（给你空间但不会冷）、🌹带刺玫瑰（你的热情能融化ta的刺）',
+      growthPlan: '第一步：学会「慢一点」——喜欢一个人时，给自己3天再决定是否表白\n第二步：观察对方的节奏——不是所有人都能接住你的热情\n第三步：给彼此空间——爱不是24小时黏在一起\n第四步：把热情分散——除了爱情，也要投入朋友、事业、爱好'
+    };
+
+    personalities.moon.fullReport = {
+      childhoodPattern: '你的敏感和温柔，是一种天赋，也是一种负担。也许你从小就善于察觉别人的情绪，也许你经历过「不被看见」的时刻，所以你现在特别需要被看见、被理解、被坚定选择。',
+      triggerPoints: '当对方：\n• 语气突然变冷淡 → 你会反复回想「我是不是说错什么了」\n• 和异性朋友聊天 → 你会不安，但不会说出来\n• 忘记纪念日/约定 → 你会非常难过，觉得「ta不在乎我」\n• 说「你想太多了」→ 这句话会让你更难受',
+      communicationGuide: '试试这样说：\n❌「你是不是不爱我了」→ ✅「我最近有点不安，需要你多陪陪我」\n❌ 生闷气等对方猜 → ✅「我现在有点难过，是因为XX事，你能抱抱我吗？」\n❌「没事」（其实有事）→ ✅「我现在不太好，但给我10分钟我告诉你怎么了」',
+      loveTimeline: '第1个月：你会小心翼翼地试探，不敢太投入\n第2-3个月：如果对方给了你足够的安全感，你会开始依赖\n第3-6个月：你可能会经历一次「安全感危机」，考验这段关系\n6个月以后：如果通过了考验，你会非常忠诚和投入',
+      idealPartner: '你需要一个「情绪稳定+有耐心」的人。ta不会嫌你「想太多」，愿意反复告诉你「我在」「我爱你」。ta不需要很浪漫，但需要很可靠。最佳搭配：🌊深海鲸（稳重给你安全感）、☀️向日葵（温暖治愈你的不安）',
+      growthPlan: '第一步：区分「事实」和「想象」——ta没回消息≠ta不爱你\n第二步：建立「自我安抚」能力——不安时先深呼吸，不要立刻发消息\n第三步：直接表达需求——「我需要你多陪我」比生闷气有效100倍\n第四步：培养自己的安全感——你的价值不取决于对方回不回消息'
+    };
+
+    personalities.whale.fullReport = {
+      childhoodPattern: '你的深沉和慢热，是一种谨慎的爱。也许你见过太快开始的感情很快结束，也许你经历过「付出真心却被辜负」。你学会了用时间来检验一个人，因为只有时间才能证明真心。',
+      triggerPoints: '当对方：\n• 太快说「我爱你」→ 你会觉得「太快了，ta真的了解我吗」\n• 要求你表达感情 → 你会觉得「说了就不珍贵了」\n• 太热情主动 → 你会后退，需要时间消化\n• 说「你心里到底有没有我」→ 你心里有，但你说不出口',
+      communicationGuide: '试试这样说：\n❌ 沉默 → ✅「我需要时间想清楚，给我一点时间」\n❌「没什么」（其实有事）→ ✅「我在想一些事，晚点和你说」\n❌ 不表达 → ✅「我不太会说，但我用行动告诉你」',
+      loveTimeline: '第1个月：你还在观察，对方可能觉得你冷淡\n第2-3个月：如果你还愿意和ta见面，说明ta通过了初步考验\n第3-6个月：你开始展现真实的自己，但依然保留一部分\n6个月-1年：你才真正完全信任一个人',
+      idealPartner: '你需要一个「有耐心+不急」的人。ta不会逼你快一点，愿意给你时间慢慢打开自己。ta能读懂你的沉默，知道你的「不说」不代表「没有」。最佳搭配：🌙月光鹿（同样慢热，能理解你）、🔥烈焰鸟（热情能慢慢融化你）',
+      growthPlan: '第一步：练习「说出来」——每天告诉ta一件你感激ta的小事\n第二步：允许自己不完美——不用等「完全准备好」才表达\n第三步：给对方信号——「我还想见你」就是很大的表白了\n第四步：记住，爱你的人不会因为你笨拙而离开，但不表达会让ta误以为你不在乎'
+    };
+
+    personalities.sunflower.fullReport = {
+      childhoodPattern: '你的乐观和温暖，可能是一种选择，也可能是一种习惯。也许你经历过困难但选择了积极面对，也许你从小就善于照顾别人的情绪。你相信正能量能吸引好的事情，但有时候你也会累。',
+      triggerPoints: '当对方：\n• 总是向你倾诉负能量 → 你会很累但不忍心拒绝\n• 说「你总是这么开心」→ 你心里想说「其实我也会难过」\n• 忽略你的付出 → 你会委屈，但很快又自我开解\n• 说「你不需要我」→ 你会难过，因为你其实也需要被照顾',
+      communicationGuide: '试试这样说：\n❌「我没事」→ ✅「我其实有点累，今天能听我说说吗？」\n❌ 一直当倾听者 → ✅「我也需要倾诉，你能抱抱我吗？」\n❌ 委屈自己 → ✅「这次我想听你的，但下次我希望你能考虑我的感受」',
+      loveTimeline: '第1个月：你们相处很愉快，你觉得ta人不错\n第2-3个月：你开始发现ta的一些缺点，但选择包容\n第3-6个月：你可能会累积一些委屈，需要一次坦诚的沟通\n6个月以后：学会在付出的同时也接受被照顾',
+      idealPartner: '你需要一个「能看见你笑容背后」的人。ta不会只夸你开朗，而是会问「你还好吗」。ta能接住你的负能量，让你也可以做那个需要被照顾的人。最佳搭配：🌙月光鹿（温柔细腻能察觉你的情绪）、🦋自由蝶（不会过度依赖你）',
+      growthPlan: '第一步：允许自己「不开心」——难过的时候不用强颜欢笑\n第二步：学会说「不」——不是所有负能量都需要你来接\n第三步：表达需求——「我也需要你」不是软弱\n第四步：记住，你不需要总是当太阳，偶尔也可以做需要阳光的月亮'
     };
 
     // ========== 状态管理 ==========
@@ -1081,8 +1330,8 @@
     }
 
     function showResult() {
-      const resultKey = calculateResult();
-      const p = personalities[resultKey];
+      currentResultKey = calculateResult();
+      const p = personalities[currentResultKey];
 
       document.getElementById('testPage').style.display = 'none';
       const resultPage = document.getElementById('resultPage');
@@ -1125,21 +1374,50 @@
           <p>${p.growth}</p>
         </div>
 
-        <div class="pay-section">
+        <div class="pay-section" id="paySection">
           <h3>🔓 解锁完整深度报告</h3>
           <p class="desc">更详细的自我分析，帮你更好地理解自己在感情中的模式</p>
           <ul class="pay-features">
-            <li>3000字深度性格解读</li>
-            <li>恋爱兼容性详细分析</li>
-            <li>最佳匹配对象完整画像</li>
+            <li>童年情感模式深度解析</li>
+            <li>情绪触发点全面分析</li>
+            <li>恋爱沟通实用指南</li>
             <li>专属恋爱成长计划</li>
-            <li>精美结果海报（可分享）</li>
+            <li>恋爱时间线预测</li>
           </ul>
           <div class="original-price">原价 ¥39.9</div>
           <div class="price">¥19.9</div>
           <div class="price-unit">限时特惠</div>
           <br>
           <button class="pay-btn" onclick="handlePay()">立即解锁 →</button>
+        </div>
+
+        <!-- 完整报告（密码解锁后显示） -->
+        <div class="full-report-section" id="fullReport">
+          <h3>🔓 完整深度报告</h3>
+          <div class="section-block">
+            <div class="section-title">🧸 童年情感模式</div>
+            <div class="section-content" id="reportChildhood"></div>
+          </div>
+          <div class="section-block">
+            <div class="section-title">⚡ 情绪触发点</div>
+            <div class="section-content" id="reportTriggers"></div>
+          </div>
+          <div class="section-block">
+            <div class="section-title">💬 沟通指南</div>
+            <div class="section-content" id="reportCommunication"></div>
+          </div>
+          <div class="section-block">
+            <div class="section-title">⏳ 恋爱时间线</div>
+            <div class="section-content" id="reportTimeline"></div>
+          </div>
+          <div class="section-block">
+            <div class="section-title">💕 理想伴侣画像</div>
+            <div class="section-content" id="reportPartner"></div>
+          </div>
+          <div class="section-block">
+            <div class="section-title">🌱 专属成长计划</div>
+            <div class="section-content" id="reportGrowth"></div>
+          </div>
         </div>
 
         <div class="action-buttons">
@@ -1156,9 +1434,55 @@
       window.scrollTo(0, 0);
     }
 
+    let currentResultKey = '';
+
     function handlePay() {
-      // TODO: 接入支付
-      alert('支付功能即将上线，敬请期待！\n\n你也可以添加微信 xxxxx 获取完整报告');
+      document.getElementById('passwordModal').classList.add('show');
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordError').classList.remove('show');
+    }
+
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.remove('show');
+    }
+
+    function verifyPassword() {
+      const input = document.getElementById('passwordInput').value.trim();
+      // 密码：每种人格对应一个密码
+      const passwordMap = {
+        butterfly: 'LOVE2024BTY',
+        flame: 'LOVE2024LYN',
+        moon: 'LOVE2024YGL',
+        whale: 'LOVE2024SHJ',
+        sunflower: 'LOVE2024XRK',
+        rose: 'LOVE2024DGMG'
+      };
+
+      const correctPassword = passwordMap[currentResultKey];
+
+      if (input === correctPassword) {
+        // 密码正确，显示完整报告
+        document.getElementById('passwordModal').classList.remove('show');
+        document.getElementById('paySection').style.display = 'none';
+        showFullReport();
+      } else {
+        document.getElementById('passwordError').classList.add('show');
+      }
+    }
+
+    function showFullReport() {
+      const p = personalities[currentResultKey];
+      const r = p.fullReport;
+
+      document.getElementById('reportChildhood').textContent = r.childhoodPattern;
+      document.getElementById('reportTriggers').textContent = r.triggerPoints;
+      document.getElementById('reportCommunication').textContent = r.communicationGuide;
+      document.getElementById('reportTimeline').textContent = r.loveTimeline;
+      document.getElementById('reportPartner').textContent = r.idealPartner;
+      document.getElementById('reportGrowth').textContent = r.growthPlan;
+
+      document.getElementById('fullReport').classList.add('show');
+      document.getElementById('fullReport').scrollIntoView({ behavior: 'smooth' });
     }
 
     function showShareModal() {
