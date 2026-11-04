@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>你的恋爱人格 | 10道题测出你的恋爱类型</title>
+  <meta name="description" content="10道趣味小题，6种恋爱人格，发现你在感情中的真实模样">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #E8A0BF;
+      --primary-dark: #D4789C;
+      --secondary: #B8E0D2;
+      --bg: #FFF8F0;
+      --text: #2D2D2D;
+      --text-light: #666;
+      --card-bg: #FFFFFF;
+      --shadow: 0 4px 20px rgba(232, 160, 191, 0.15);
+      --radius: 0px;
+      --pixel: 4px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      background-image:
+        linear-gradient(45deg, #fce4ec 25%, transparent 25%),
+        linear-gradient(-45deg, #fce4ec 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #fce4ec 75%),
+        linear-gradient(-45deg, transparent 75%, #fce4ec 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 20px 16px;
+      min-height: 100vh;
+    }
+
+    /* ========== 像素风标题 ========== */
+    .pixel-font {
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      letter-spacing: 2px;
+      image-rendering: pixelated;
+    }
+
+    /* ========== 欢迎页 ========== */
+    .welcome-page {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    /* 像素爱心 */
+    .pixel-heart-wrapper {
+      margin-bottom: 32px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pixelBounce 1.5s steps(4) infinite;
+    }
+
+    @keyframes pixelBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .pixel-heart {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: transparent;
+      box-shadow:
+        /* Row 1 */
+        12px 0px 0 0 #ff6b9d,
+        18px 0px 0 0 #ff6b9d,
+        30px 0px 0 0 #ff6b9d,
+        36px 0px 0 0 #ff6b9d,
+        /* Row 2 */
+        6px 6px 0 0 #ff6b9d,
+        12px 6px 0 0 #ff8fb5,
+        18px 6px 0 0 #ff6b9d,
+        24px 6px 0 0 #ff6b9d,
+        30px 6px 0 0 #ff8fb5,
+        36px 6px 0 0 #ff6b9d,
+        42px 6px 0 0 #ff6b9d,
+        /* Row 3 */
+        6px 12px 0 0 #ff6b9d,
+        12px 12px 0 0 #ff8fb5,
+        18px 12px 0 0 #ff6b9d,
+        24px 12px 0 0 #ff6b9d,
+        30px 12px 0 0 #ff6b9d,
+        36px 12px 0 0 #ff8fb5,
+        42px 12px 0 0 #ff6b9d,
+        /* Row 4 */
+        12px 18px 0 0 #ff6b9d,
+        18px 18px 0 0 #ff6b9d,
+        24px 18px 0 0 #ff6b9d,
+        30px 18px 0 0 #ff6b9d,
+        36px 18px 0 0 #ff6b9d,
+        /* Row 5 */
+        18px 24px 0 0 #ff6b9d,
+        24px 24px 0 0 #ff6b9d,
+        30px 24px 0 0 #ff6b9d,
+        /* Row 6 */
+        24px 30px 0 0 #ff6b9d;
+      transform: scale(1.8);
+    }
+
+    /* 像素风星星装饰 */
+    .pixel-stars {
+      position: relative;
+      height: 20px;
+      margin-bottom: 16px;
+    }
+
+    .pixel-star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #FFD700;
+      box-shadow:
+        4px 0 0 #FFD700,
+        -4px 0 0 #FFD700,
+        0 4px 0 #FFD700,
+        0 -4px 0 #FFD700;
+      animation: twinkle 2s steps(2) infinite;
+    }
+
+    .pixel-star:nth-child(1) { left: 15%; top: 5px; animation-delay: 0s; }
+    .pixel-star:nth-child(2) { left: 45%; top: 0; animation-delay: 0.5s; }
+    .pixel-star:nth-child(3) { left: 75%; top: 8px; animation-delay: 1s; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .welcome-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 4px;
+      text-shadow: 3px 3px 0 #ffd1e8, -1px -1px 0 #fff;
+    }
+
+    .welcome-subtitle {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 40px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+    }
+
+    .welcome-features {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .feature-item {
+      text-align: center;
+    }
+
+    .feature-num {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      font-family: 'Courier New', monospace;
+    }
+
+    .feature-label {
+      font-size: 12px;
+      color: var(--text-light);
+      font-family: 'Courier New', monospace;
+    }
+
+    .types-preview {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .type-badge {
+      background: var(--card-bg);
+      padding: 8px 14px;
+      border-radius: 0;
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      border: 3px solid var(--primary);
+      box-shadow: 4px 4px 0 var(--primary);
+      transition: all 0.1s steps(2);
+    }
+
+    .type-badge:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--primary);
+    }
+
+    .start-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 16px 48px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.1s steps(2);
+      box-shadow: 6px 6px 0 var(--primary-dark);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      border: 3px solid var(--primary-dark);
+      image-rendering: pixelated;
+    }
+
+    .start-btn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0 var(--primary-dark);
+    }
+
+    .start-btn:active {
+      transform: translate(6px, 6px);
+      box-shadow: 0 0 0 var(--primary-dark);
+    }
+
+    /* ========== 测试页 ========== */
+    .test-page {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .progress-bar {
+      background: #F0E0E8;
+      height: 6px;
+      border-radius: 3px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+
+    .progress-text {
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .question-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .question-num {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .question-text {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-btn {
+      background: #FFF5F8;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+    }
+
+    .option-btn:hover {
+      border-color: var(--primary);
+      background: #FFF0F5;
+    }
+
+    .option-btn:active {
+      transform: scale(0.98);
+    }
+
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, #FFF0F5, #FFE8EF);
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .nav-btn.prev {
+      background: #F5F5F5;
+      color: var(--text-light);
+    }
+
+    .nav-btn.next {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 4px 16px rgba(232, 160, 191, 0.3);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .nav-btn:not(:disabled):active {
+      transform: scale(0.98);
+    }
+
+    /* ========== 结果页 ========== */
+    .result-page {
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .result-header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .result-emoji {
+      font-size: 72px;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .result-label {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .result-type {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .result-keywords {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .result-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .result-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .result-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .trait-list {
+      list-style: none;
+    }
+
+    .trait-list li {
+      font-size: 14px;
+      padding: 6px 0;
+      color: var(--text-light);
+    }
+
+    .trait-list li::before {
+      margin-right: 8px;
+    }
+
+    .strengths li::before { content: "✅"; }
+    .weaknesses li::before { content: "⚠️"; }
+
+    .match-section {
+      background: linear-gradient(135deg, #FFF5F8, #F0F8FF);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .match-section h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .match-section p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .growth-section {
+      background: linear-gradient(135deg, #F0FFF8, #F8FFF0);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .growth-section h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .growth-section p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+      margin-bottom: 20px;
+    }
+
+    .action-btn {
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 4px 16px rgba(232, 160, 191, 0.3);
+    }
+
+    .action-btn.secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 2px solid var(--primary);
+    }
+
+    .action-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ========== 付费页 ========== */
+    .pay-section {
+      background: linear-gradient(135deg, #FFF5F8, #FFF0F5);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .pay-section h3 {
+      font-size: 18px;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .pay-section .desc {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .pay-features {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .pay-features li {
+      font-size: 14px;
+      padding: 6px 0;
+      list-style: none;
+    }
+
+    .pay-features li::before {
+      content: "✨ ";
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .price-unit {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .pay-btn {
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      color: white;
+      border: none;
+      padding: 16px 48px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(255, 107, 107, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .pay-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ========== 分享弹窗 ========== */
+    .share-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .share-modal.show {
+      display: flex;
+    }
+
+    .share-content {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      max-width: 320px;
+      width: 90%;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .share-content h3 {
+      margin-bottom: 16px;
+    }
+
+    .share-options {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .share-option {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .share-option .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .share-option:nth-child(1) .icon { background: #07C160; }
+    .share-option:nth-child(2) .icon { background: #E8A0BF; }
+    .share-option:nth-child(3) .icon { background: #FF6B6B; }
+
+    .share-option span {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 14px;
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ========== 底部 ========== */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 欢迎页 -->
+    <div class="welcome-page" id="welcomePage">
+      <div class="pixel-stars">
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+        <div class="pixel-star"></div>
+      </div>
+      <div class="pixel-heart-wrapper">
+        <div class="pixel-heart"></div>
+      </div>
+      <h1 class="welcome-title">你的恋爱人格</h1>
+      <p class="welcome-subtitle">10道趣味小题，发现你在感情中的真实模样</p>
+
+      <div class="welcome-features">
+        <div class="feature-item">
+          <div class="feature-num">10</div>
+          <div class="feature-label">道题目</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">2</div>
+          <div class="feature-label">分钟</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">6</div>
+          <div class="feature-label">种人格</div>
+        </div>
+      </div>
+
+      <div class="types-preview">
+        <span class="type-badge">🦋 自由蝶</span>
+        <span class="type-badge">🔥 烈焰鸟</span>
+        <span class="type-badge">🌙 月光鹿</span>
+        <span class="type-badge">🌊 深海鲸</span>
+        <span class="type-badge">☀️ 向日葵</span>
+        <span class="type-badge">🌹 带刺玫瑰</span>
+      </div>
+
+      <button class="start-btn" onclick="startTest()">开始测试 →</button>
+    </div>
+
+    <!-- 测试页 -->
+    <div class="test-page" id="testPage">
+      <div class="progress-text"><span id="progressNum">1</span>/10</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-num" id="questionNum">第1题</div>
+        <div class="question-text" id="questionText"></div>
+        <div class="options" id="optionsContainer"></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn prev" id="prevBtn" onclick="prevQuestion()" disabled>上一题</button>
+        <button class="nav-btn next" id="nextBtn" onclick="nextQuestion()">下一题</button>
+      </div>
+    </div>
+
+    <!-- 结果页 -->
+    <div class="result-page" id="resultPage"></div>
+  </div>
+
+  <!-- 分享弹窗 -->
+  <div class="share-modal" id="shareModal">
+    <div class="share-content">
+      <h3>分享给朋友</h3>
+      <div class="share-options">
+        <div class="share-option" onclick="shareTo('wechat')">
+          <div class="icon">💬</div>
+          <span>微信</span>
+        </div>
+        <div class="share-option" onclick="shareTo('moments')">
+          <div class="icon">📷</div>
+          <span>朋友圈</span>
+        </div>
+        <div class="share-option" onclick="shareTo('copy')">
+          <div class="icon">🔗</div>
+          <span>复制链接</span>
+        </div>
+      </div>
+      <button class="close-modal" onclick="closeShareModal()">关闭</button>
+    </div>
+  </div>
+
+  <script>
+    // ========== 题目数据 ==========
+    const questions = [
+      {
+        q: "周末没有安排，你理想的状态是？",
+        options: [
+          { text: "A. 约朋友出去逛街/聚餐，越热闹越好", scores: { E: 1 } },
+          { text: "B. 窝在家里追剧/看书，享受独处", scores: { I: 1 } },
+          { text: "C. 看心情，有人约就出去，没人约就宅着", scores: { E: 0.5, I: 0.5 } },
+          { text: "D. 希望另一半安排好，我跟着就好", scores: { A: 1 } }
+        ]
+      },
+      {
+        q: "喜欢的人给你发了一条暧昧的消息，你会？",
+        options: [
+          { text: "A. 秒回！趁热打铁，把暧昧升级", scores: { E: 1, F: 0.5 } },
+          { text: "B. 假装没看到，过一会儿再回", scores: { I: 1, T: 0.5 } },
+          { text: "C. 反复读了好几遍，纠结怎么回才自然", scores: { I: 0.5, F: 1 } },
+          { text: "D. 直接打电话过去，文字聊太慢了", scores: { E: 1, F: 0.5 } }
+        ]
+      },
+      {
+        q: "恋爱中你最害怕的事情是？",
+        options: [
+          { text: "A. 对方突然冷淡，消息不回电话不接", scores: { A: 1, F: 1 } },
+          { text: "B. 被束缚住，失去自由和私人空间", scores: { E: 0.5, T: 0.5 } },
+          { text: "C. 付出太多却没有得到同等回应", scores: { F: 1, A: 0.5 } },
+          { text: "D. 吵架之后不知道怎么和好", scores: { I: 0.5, T: 0.5 } }
+        ]
+      },
+      {
+        q: "你更相信哪种表达方式的爱意？",
+        options: [
+          { text: "A. 每天说「我爱你」，甜言蜜语不能少", scores: { E: 1, F: 0.5 } },
+          { text: "B. 记住你说过的每个细节，默默为你做事", scores: { I: 0.5, T: 0.5, S: 0.5 } },
+          { text: "C. 愿意花时间陪你，哪怕什么都不做", scores: { S: 1, F: 0.5 } },
+          { text: "D. 送你礼物/转账，实实在在的东西", scores: { T: 1, S: 0.5 } }
+        ]
+      },
+      {
+        q: "和另一半意见不合时，你通常会？",
+        options: [
+          { text: "A. 据理力争，我是对的就必须坚持", scores: { E: 1, T: 0.5 } },
+          { text: "B. 先冷静一下，等情绪过了再沟通", scores: { T: 1, S: 0.5 } },
+          { text: "C. 容易心软，对方一哄就好了", scores: { F: 1, A: 0.5 } },
+          { text: "D. 不想吵，先回避，等事情自然过去", scores: { I: 1, T: 0.5 } }
+        ]
+      },
+      {
+        q: "你理想中的恋爱节奏是？",
+        options: [
+          { text: "A. 轰轰烈烈，每天都要有新鲜感和惊喜", scores: { E: 1, F: 1 } },
+          { text: "B. 细水长流，平淡但稳定最幸福", scores: { T: 0.5, S: 1 } },
+          { text: "C. 若即若离，保持距离感更有吸引力", scores: { I: 1, T: 0.5 } },
+          { text: "D. 快速升温，看对眼了就直接确定关系", scores: { E: 1, F: 0.5 } }
+        ]
+      },
+      {
+        q: "朋友评价你在感情中是？",
+        options: [
+          { text: 'A.「你太恋爱脑了！一谈恋爱就没自我」', scores: { E: 0.5, F: 1 } },
+          { text: 'B.「你好难追啊，谁都不容易走进你心里」', scores: { I: 1, T: 0.5 } },
+          { text: 'C.「你在感情里好温柔，对方一定很幸福」', scores: { F: 1, S: 0.5 } },
+          { text: 'D.「你的感情经历好丰富啊...」', scores: { E: 1, A: 0.5 } }
+        ]
+      },
+      {
+        q: "另一半忘记了你们的纪念日，你会？",
+        options: [
+          { text: "A. 超级难过，觉得ta根本不在乎我", scores: { A: 1, F: 1 } },
+          { text: "B. 算了，可能太忙了，自己提醒自己就好", scores: { S: 1, T: 0.5 } },
+          { text: 'C. 直接说：「你是不是忘了今天什么日子？」', scores: { E: 1, T: 0.5 } },
+          { text: "D. 也不提醒，看ta什么时候能想起来", scores: { A: 0.5, I: 0.5 } }
+        ]
+      },
+      {
+        q: "你觉得在恋爱中，什么最重要？",
+        options: [
+          { text: "A. 忠诚，绝对不能背叛", scores: { A: 0.5, S: 0.5, F: 0.5 } },
+          { text: "B. 有趣，在一起要开心才行", scores: { E: 1, F: 0.5 } },
+          { text: "C. 成长，两个人一起变得更好", scores: { T: 1, S: 0.5 } },
+          { text: "D. 默契，不用多说就能懂彼此", scores: { I: 0.5, F: 0.5, S: 0.5 } }
+        ]
+      },
+      {
+        q: "如果让你选一个恋爱超能力，你选？",
+        options: [
+          { text: "A. 读心术——随时知道对方在想什么", scores: { A: 1, F: 0.5 } },
+          { text: "B. 时光机——回到最初认识的那一刻", scores: { F: 1, I: 0.5 } },
+          { text: "C. 隐身术——想消失的时候就消失", scores: { I: 1, S: 0.5 } },
+          { text: "D. 治愈力——抚平彼此所有的伤痛", scores: { F: 1, S: 1 } }
+        ]
+      }
+    ];
+
+    // ========== 人格结果数据 ==========
+    const personalities = {
+      butterfly: {
+        emoji: "🦋",
+        name: "自由蝶",
+        keywords: "独立 · 自由 · 洒脱",
+        color: "#87CEEB",
+        colorLight: "#F0F8FF",
+        image: "描述：像蝴蝶一样自由飞舞",
+        description: "你在感情里像一阵风——来去自如，不被任何人束缚。你享受恋爱的甜蜜，但绝不接受被控制。你有自己的朋友圈、自己的爱好、自己的空间，爱情只是生活的一部分，不是全部。",
+        strengths: [
+          "独立自主，不会过度依赖对方",
+          "情绪稳定，不会因为小事患得患失",
+          "给彼此足够的空间和自由"
+        ],
+        weaknesses: [
+          "有时候显得太冷淡，让对方觉得你不在乎",
+          "太重视自由，可能会错过需要深耕的感情",
+          "不善于表达脆弱，把所有事情都自己扛"
+        ],
+        match: "同样独立、尊重你空间的人。太黏人的类型会让你窒息。最佳搭配：🌊深海鲸、☀️向日葵",
+        growth: "学会偶尔示弱。真正的亲密，是敢于在对方面前放下铠甲。"
+      },
+      flame: {
+        emoji: "🔥",
+        name: "烈焰鸟",
+        keywords: "热情 · 投入 · 浪漫",
+        color: "#FF6347",
+        colorLight: "#FFF5F5",
+        description: "你爱起来像一把火——热烈、全情投入、毫不保留。你喜欢就直说，想拥抱就拥抱，在感情里从不玩欲擒故纵的把戏。你相信爱情就应该轰轰烈烈，平淡如水那不是你要的。",
+        strengths: [
+          "表达直接，沟通效率高",
+          "热情有感染力，能让对方感受到被爱",
+          "敢爱敢恨，不拖泥带水"
+        ],
+        weaknesses: [
+          "容易上头太快，还没了解清楚就投入全部",
+          "热情来得快去得也快，容易被说三分钟热度",
+          "有时候太强势，不给对方喘息的空间"
+        ],
+        match: "能跟上你节奏、同样热情的人。太闷的类型会让你觉得无聊。最佳搭配：🦋自由蝶、🌹带刺玫瑰",
+        growth: "慢一点。真正的爱不是瞬间的烟火，而是持续的温暖。"
+      },
+      moon: {
+        emoji: "🌙",
+        name: "月光鹿",
+        keywords: "敏感 · 温柔 · 需要安全感",
+        color: "#9B8DC7",
+        colorLight: "#F8F5FF",
+        description: "你在感情里像一只温柔的小鹿——细腻、敏感、容易受伤。你会因为对方的一句话开心一整天，也会因为对方晚回消息而胡思乱想。你渴望深度的灵魂连接，浅层的暧昧满足不了你。",
+        strengths: [
+          "共情力强，能敏锐感知对方的情绪",
+          "温柔体贴，愿意为对方付出",
+          "对感情认真，不玩暧昧"
+        ],
+        weaknesses: [
+          "容易想太多，内耗严重",
+          "太需要安全感，可能会让对方觉得累",
+          "不敢表达真实需求，习惯委屈自己"
+        ],
+        match: "耐心、温暖、情绪稳定的人。需要能给你足够安全感。最佳搭配：🌊深海鲸、☀️向日葵",
+        growth: "你的敏感是天赋，不是负担。学会直接表达需求，而不是让对方猜。"
+      },
+      whale: {
+        emoji: "🌊",
+        name: "深海鲸",
+        keywords: "深沉 · 专一 · 慢热",
+        color: "#4682B4",
+        colorLight: "#F0F8FF",
+        description: "你在感情里像深海里的鲸——安静、深沉、但内心丰富。你不会轻易动心，但一旦认定了就是认真的。你不相信一见钟情，你相信日久生情。",
+        strengths: [
+          "专一可靠，认定了就不轻易放弃",
+          "情绪稳定，是对方最坚实的依靠",
+          "思考深入，能给出有质量的建议"
+        ],
+        weaknesses: [
+          "太慢热，容易错过喜欢你的人",
+          "不善于表达感情，心里有爱但说不出口",
+          "太理性，有时候忽略了对方的情感需求"
+        ],
+        match: "有耐心、不急躁的人。愿意给你时间慢慢打开自己的人。最佳搭配：🌙月光鹿、🔥烈焰鸟",
+        growth: "试着把心里的话说出来。爱你的人不会因为你的笨拙而离开，但不表达会让对方误以为你不在乎。"
+      },
+      sunflower: {
+        emoji: "☀️",
+        name: "向日葵",
+        keywords: "乐观 · 治愈 · 温暖",
+        color: "#FFB347",
+        colorLight: "#FFFDF0",
+        description: "你在感情里像一束阳光——温暖、积极、充满正能量。和你在一起的人都会被你的笑容感染。你相信爱情是美好的，即使受过伤也依然选择相信。",
+        strengths: [
+          "正能量满满，能带动对方的情绪",
+          "包容力强，不斤斤计较",
+          "善于沟通，有问题及时解决"
+        ],
+        weaknesses: [
+          "总是笑着，有时候对方不知道你也会难过",
+          "太包容，可能会委屈自己",
+          "对谁都好，容易让人觉得你对我和对别人一样"
+        ],
+        match: '能读懂你笑容背后情绪的人。不是只会夸你开朗，而是能问你「你还好吗」的人。最佳搭配：🌙月光鹿、🦋自由蝶',
+        growth: "你也可以不坚强。在爱你的人面前，允许自己做那个需要被照顾的小孩。"
+      },
+      rose: {
+        emoji: "🌹",
+        name: "带刺玫瑰",
+        keywords: "傲娇 · 矛盾 · 嘴硬心软",
+        color: "#DB7093",
+        colorLight: "#FFF0F5",
+        description: '你在感情里像一朵带刺的玫瑰——明明想靠近，却习惯性地竖起防线。嘴上说着「随便你」，心里想的是「你快来哄我」。你不是不想爱，你是太怕受伤。',
+        strengths: [
+          "外冷内热，反差萌",
+          "对感情认真负责，不随便开始",
+          "观察力强，能看穿很多事"
+        ],
+        weaknesses: [
+          "嘴硬心软，容易让对方误解你",
+          "太爱试探，有时候会把人作走",
+          "习惯被动等待，不敢主动表达喜欢"
+        ],
+        match: "脸皮厚、不怕你冷脸的人。能看穿你的逞强，坚持留在你身边。最佳搭配：🔥烈焰鸟、🌊深海鲸",
+        growth: "你的刺保护了你，但也挡住了爱你的人。试着拔掉几根刺，让阳光照进来。"
+      }
+    };
+
+    // ========== 状态管理 ==========
+    let currentQuestion = 0;
+    let answers = [];
+
+    // ========== 核心逻辑 ==========
+    function startTest() {
+      document.getElementById('welcomePage').style.display = 'none';
+      document.getElementById('testPage').style.display = 'block';
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById('questionNum').textContent = `第${currentQuestion + 1}题`;
+      document.getElementById('questionText').textContent = q.q;
+      document.getElementById('progressNum').textContent = currentQuestion + 1;
+      document.getElementById('progressFill').style.width = `${(currentQuestion + 1) * 10}%`;
+
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn' + (answers[currentQuestion] === idx ? ' selected' : '');
+        btn.textContent = opt.text;
+        btn.onclick = () => selectOption(idx);
+        container.appendChild(btn);
+      });
+
+      document.getElementById('prevBtn').disabled = currentQuestion === 0;
+      document.getElementById('nextBtn').textContent = currentQuestion === 9 ? '查看结果' : '下一题';
+    }
+
+    function selectOption(idx) {
+      answers[currentQuestion] = idx;
+      const btns = document.querySelectorAll('.option-btn');
+      btns.forEach((btn, i) => {
+        btn.classList.toggle('selected', i === idx);
+      });
+    }
+
+    function nextQuestion() {
+      if (answers[currentQuestion] === undefined) {
+        alert('请先选择一个选项哦～');
+        return;
+      }
+      if (currentQuestion < 9) {
+        currentQuestion++;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+      }
+    }
+
+    function calculateResult() {
+      const scores = { E: 0, I: 0, F: 0, T: 0, S: 0, A: 0 };
+
+      answers.forEach((ansIdx, qIdx) => {
+        const optionScores = questions[qIdx].options[ansIdx].scores;
+        for (const [key, value] of Object.entries(optionScores)) {
+          scores[key] += value;
+        }
+      });
+
+      // 确定各维度倾向
+      const energy = scores.E >= scores.I ? 'E' : 'I';
+      const emotion = scores.F >= scores.T ? 'F' : 'T';
+      const attach = scores.S >= scores.A ? 'S' : 'A';
+
+      // 匹配人格
+      const combo = energy + emotion + attach;
+
+      const mapping = {
+        'ETS': 'butterfly',
+        'ETF': 'butterfly',
+        'EFS': 'flame',
+        'EFF': 'sunflower',
+        'IFS': 'whale',
+        'IFT': 'whale',
+        'IFF': 'moon',
+        'IEF': 'moon',
+        'ISA': 'rose',
+        'ITA': 'rose',
+        'IFA': 'moon',
+        'EFA': 'rose',
+        'EIA': 'flame',
+        'ESA': 'sunflower',
+        'EAA': 'flame',
+      };
+
+      // 简单映射逻辑
+      if (energy === 'E' && emotion === 'T' && attach === 'S') return 'butterfly';
+      if (energy === 'E' && emotion === 'F' && attach === 'S') return 'flame';
+      if (energy === 'I' && emotion === 'F' && attach === 'A') return 'moon';
+      if (energy === 'I' && emotion === 'T' && attach === 'S') return 'whale';
+      if (energy === 'E' && emotion === 'F' && attach === 'S') return 'sunflower';
+      if (energy === 'I' && attach === 'A') return 'rose';
+
+      // 更多匹配
+      if (energy === 'E' && attach === 'A') return 'flame';
+      if (energy === 'E' && emotion === 'T') return 'butterfly';
+      if (emotion === 'F' && attach === 'S') return 'sunflower';
+      if (attach === 'S' && emotion === 'T') return 'whale';
+
+      return 'butterfly'; // default
+    }
+
+    function showResult() {
+      const resultKey = calculateResult();
+      const p = personalities[resultKey];
+
+      document.getElementById('testPage').style.display = 'none';
+      const resultPage = document.getElementById('resultPage');
+      resultPage.style.display = 'block';
+
+      resultPage.innerHTML = `
+        <div class="result-header" style="background: linear-gradient(135deg, ${p.colorLight}, var(--bg)); border-radius: var(--radius); padding: 40px 20px; margin-bottom: 16px;">
+          <div class="result-emoji">${p.emoji}</div>
+          <div class="result-label">你的恋爱人格是</div>
+          <div class="result-type" style="color: ${p.color}">${p.name}</div>
+          <div class="result-keywords">${p.keywords}</div>
+        </div>
+
+        <div class="result-card">
+          <h3>💗 恋爱画像</h3>
+          <p>${p.description}</p>
+        </div>
+
+        <div class="result-card">
+          <h3>✅ 你的恋爱优势</h3>
+          <ul class="trait-list strengths">
+            ${p.strengths.map(s => `<li>${s}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="result-card">
+          <h3>⚠️ 你的恋爱盲点</h3>
+          <ul class="trait-list weaknesses">
+            ${p.weaknesses.map(w => `<li>${w}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="match-section">
+          <h3>💕 适合你的对象</h3>
+          <p>${p.match}</p>
+        </div>
+
+        <div class="growth-section">
+          <h3>🌱 恋爱成长建议</h3>
+          <p>${p.growth}</p>
+        </div>
+
+        <div class="pay-section">
+          <h3>🔓 解锁完整深度报告</h3>
+          <p class="desc">更详细的自我分析，帮你更好地理解自己在感情中的模式</p>
+          <ul class="pay-features">
+            <li>3000字深度性格解读</li>
+            <li>恋爱兼容性详细分析</li>
+            <li>最佳匹配对象完整画像</li>
+            <li>专属恋爱成长计划</li>
+            <li>精美结果海报（可分享）</li>
+          </ul>
+          <div class="original-price">原价 ¥39.9</div>
+          <div class="price">¥19.9</div>
+          <div class="price-unit">限时特惠</div>
+          <br>
+          <button class="pay-btn" onclick="handlePay()">立即解锁 →</button>
+        </div>
+
+        <div class="action-buttons">
+          <button class="action-btn secondary" onclick="showShareModal()">📤 分享给朋友</button>
+          <button class="action-btn secondary" onclick="restartTest()">🔄 重新测试</button>
+        </div>
+
+        <div class="footer">
+          由「心屿」性格测试提供
+        </div>
+      `;
+
+      // 滚动到顶部
+      window.scrollTo(0, 0);
+    }
+
+    function handlePay() {
+      // TODO: 接入支付
+      alert('支付功能即将上线，敬请期待！\n\n你也可以添加微信 xxxxx 获取完整报告');
+    }
+
+    function showShareModal() {
+      document.getElementById('shareModal').classList.add('show');
+    }
+
+    function closeShareModal() {
+      document.getElementById('shareModal').classList.remove('show');
+    }
+
+    function shareTo(platform) {
+      if (platform === 'copy') {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert('链接已复制，快去分享给朋友吧！');
+        });
+      } else if (platform === 'wechat') {
+        alert('请使用微信右上角「...」分享给朋友');
+      } else {
+        alert('请保存图片或复制链接分享到朋友圈');
+      }
+      closeShareModal();
+    }
+
+    function restartTest() {
+      currentQuestion = 0;
+      answers = [];
+      document.getElementById('resultPage').style.display = 'none';
+      document.getElementById('welcomePage').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
