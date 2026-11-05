@@ -770,7 +770,7 @@
         <div class="type-pill"><span class="emoji">🌊</span><span class="name">管家</span></div>
         <div class="type-pill"><span class="emoji">☀️</span><span class="name">妈妈</span></div>
         <div class="type-pill"><span class="emoji">🌹</span><span class="name">公主病</span></div>
-        <div class="type-pill"><span class="emoji">🎭</span><span class="name">戏精</span></div>
+        <div class="type-pill"><span class="emoji">🎭</span><span class="name">演员</span></div>
         <div class="type-pill"><span class="emoji">🏔️</span><span class="name">军师</span></div>
         <div class="type-pill"><span class="emoji">🌸</span><span class="name">恋爱脑</span></div>
         <div class="type-pill"><span class="emoji">🐠</span><span class="name">小丑</span></div>
@@ -856,125 +856,165 @@
         { text: "A. 约朋友出去逛街/聚餐，越热闹越好", scores: { E: 1 } },
         { text: "B. 窝在家里追剧/看书，享受独处", scores: { I: 1 } },
         { text: "C. 看心情，有人约就出去，没人约就宅着", scores: { E: 0.5, I: 0.5 } },
-        { text: "D. 希望另一半安排好，我跟着就好", scores: { A: 0.5 } }
+        { text: "D. 希望另一半安排好，我跟着就好", scores: { I: 0.5 } },
+        { text: "E. 约一两个好朋友来家里，边吃边聊到深夜", scores: { E: 1 } },
+        { text: "F. 一个人去咖啡馆或看展，安静地待一下午", scores: { I: 1 } }
       ]},
       { q: "喜欢的人给你发了一条暧昧的消息，你会？", options: [
         { text: "A. 秒回！趁热打铁，把暧昧升级", scores: { E: 1, F: 0.5 } },
         { text: "B. 假装没看到，过一会儿再回", scores: { I: 1, T: 0.5 } },
         { text: "C. 反复读了好几遍，纠结怎么回才自然", scores: { I: 0.5, F: 1 } },
-        { text: "D. 直接打电话过去，文字聊太慢了", scores: { E: 1, F: 0.5 } }
+        { text: "D. 直接打电话过去，文字聊太慢了", scores: { E: 1, F: 0.5 } },
+        { text: "E. 截图发给闺蜜/兄弟，问ta该怎么回", scores: { E: 0.5, F: 0.5 } },
+        { text: "F. 把手机扣过去，逼自己先忙别的", scores: { I: 1 } }
       ]},
       { q: "参加一个有很多陌生人的聚会，你会？", options: [
         { text: "A. 主动找话题，和每个人都能聊几句", scores: { E: 1 } },
         { text: "B. 找一两个看起来好聊的人，深入交流", scores: { I: 0.5, E: 0.5 } },
         { text: "C. 安静待在角落，等别人来找我", scores: { I: 1 } },
-        { text: "D. 观察全场，找到有趣的人再靠近", scores: { I: 0.5, N: 0.5 } }
+        { text: "D. 观察全场，找到有趣的人再靠近", scores: { I: 0.5, N: 0.5 } },
+        { text: "E. 主动帮忙张罗，倒水点单活跃气氛", scores: { E: 1 } },
+        { text: "F. 跟主人打个招呼，然后找借口早点走", scores: { I: 1 } }
       ]},
       { q: "和另一半在一起时，你更喜欢？", options: [
         { text: "A. 一起出去探索新地方、尝试新事物", scores: { E: 1, P: 0.5 } },
         { text: "B. 在家做饭看电影，享受二人世界", scores: { I: 1, J: 0.5 } },
         { text: "C. 各做各的事，偶尔聊几句就很舒服", scores: { I: 1 } },
-        { text: "D. 计划好行程，按部就班地约会", scores: { J: 1 } }
+        { text: "D. 计划好行程，按部就班地约会", scores: { J: 1 } },
+        { text: "E. 叫上其他情侣朋友，一起热闹", scores: { E: 1 } },
+        { text: "F. 各自看手机，但待在一起就很安心", scores: { I: 1 } }
       ]},
       // --- 维度2: 信息处理 N/S (Q5-Q8) ---
-      { q: "你更相信哪种表达方式的爱意？", options: [
+      { q: "你更相信哪种表达方式的爱意？", multi: true, options: [
         { text: "A. 每天说「我爱你」，甜言蜜语不能少", scores: { S: 1, F: 0.5 } },
         { text: "B. 记住你说过的每个细节，默默为你做事", scores: { S: 0.5, T: 0.5 } },
         { text: "C. 制造惊喜和浪漫，让你心跳加速", scores: { N: 1, F: 0.5 } },
-        { text: "D. 规划未来，让你看到共同的方向", scores: { N: 0.5, T: 0.5, J: 0.5 } }
+        { text: "D. 规划未来，让你看到共同的方向", scores: { N: 0.5, T: 0.5, J: 0.5 } },
+        { text: "E. 在生活细节上照顾你，记得你爱吃什么", scores: { S: 1 } },
+        { text: "F. 和你聊未来和梦想，让你觉得被理解", scores: { N: 1 } }
       ]},
       { q: "吵架后复盘，你更关注？", options: [
         { text: "A. 当时具体说了什么、做了什么", scores: { S: 1 } },
         { text: "B. 对方背后的动机和真实想法", scores: { N: 1 } },
         { text: "C. 自己的感受有没有被理解", scores: { F: 1 } },
-        { text: "D. 怎么避免下次再吵同样的架", scores: { T: 1, J: 0.5 } }
+        { text: "D. 怎么避免下次再吵同样的架", scores: { T: 1, J: 0.5 } },
+        { text: "E. 回忆ta当时的语气和表情，判断在不在意", scores: { S: 0.5, F: 0.5 } },
+        { text: "F. 想想这段关系还值不值得继续", scores: { N: 0.5, T: 0.5 } }
       ]},
       { q: "你理想中的恋爱场景是？", options: [
         { text: "A. 海边日落，牵手漫步，说不完的话", scores: { N: 1, F: 0.5 } },
         { text: "B. 一起做饭，收拾房间，平淡但温馨", scores: { S: 1, J: 0.5 } },
         { text: "C. 冒险旅行，去没去过的地方", scores: { N: 0.5, P: 1 } },
-        { text: "D. 窝在沙发上看同一部剧，什么都不用想", scores: { S: 1, I: 0.5 } }
+        { text: "D. 窝在沙发上看同一部剧，什么都不用想", scores: { S: 1, I: 0.5 } },
+        { text: "E. 一起看live/演唱会，在人群里牵手", scores: { E: 0.5, N: 0.5 } },
+        { text: "F. 一起逛超市买菜，回家做饭", scores: { S: 1, J: 0.5 } }
       ]},
       { q: "对方说了一句让你心动的话，你会？", options: [
         { text: "A. 反复回味，想象各种可能性", scores: { N: 1, F: 0.5 } },
         { text: "B. 分析ta是不是对每个人都这样说", scores: { S: 0.5, T: 1 } },
         { text: "C. 立刻截图保存，反复看", scores: { F: 1, S: 0.5 } },
-        { text: "D. 想着怎么回一句同样撩的", scores: { E: 0.5, N: 0.5 } }
+        { text: "D. 想着怎么回一句同样撩的", scores: { E: 0.5, N: 0.5 } },
+        { text: "E. 心里一紧，但表面装作很淡定", scores: { I: 0.5, T: 0.5 } },
+        { text: "F. 马上分享给好朋友，让ta帮你分析", scores: { E: 0.5, F: 0.5 } }
       ]},
       // --- 维度3: 决策方式 F/T (Q9-Q12) ---
-      { q: "恋爱中你最害怕的事情是？", options: [
-        { text: "A. 对方突然冷淡，消息不回电话不接", scores: { A: 1, F: 1 } },
+      { q: "恋爱中你最害怕的事情是？", multi: true, options: [
+        { text: "A. 对方突然冷淡，消息不回电话不接", scores: { F: 1 } },
         { text: "B. 被束缚住，失去自由和私人空间", scores: { E: 0.5, T: 0.5 } },
-        { text: "C. 付出太多却没有得到同等回应", scores: { F: 1, A: 0.5 } },
-        { text: "D. 吵架之后不知道怎么和好", scores: { I: 0.5, T: 0.5 } }
+        { text: "C. 付出太多却没有得到同等回应", scores: { F: 1 } },
+        { text: "D. 吵架之后不知道怎么和好", scores: { I: 0.5, T: 0.5 } },
+        { text: "E. 对方不够喜欢我，只是在将就", scores: { F: 1 } },
+        { text: "F. 两个人越来越没话说，变成室友", scores: { T: 0.5, I: 0.5 } }
       ]},
       { q: "和另一半意见不合时，你通常会？", options: [
         { text: "A. 据理力争，我是对的就必须坚持", scores: { E: 0.5, T: 1 } },
         { text: "B. 先冷静一下，等情绪过了再沟通", scores: { T: 1, J: 0.5 } },
-        { text: "C. 容易心软，对方一哄就好了", scores: { F: 1, A: 0.5 } },
-        { text: "D. 不想吵，先回避，等事情自然过去", scores: { I: 1, T: 0.5 } }
+        { text: "C. 容易心软，对方一哄就好了", scores: { F: 1 } },
+        { text: "D. 不想吵，先回避，等事情自然过去", scores: { I: 1, T: 0.5 } },
+        { text: "E. 先道歉缓和气氛，事后再讲道理", scores: { F: 1 } },
+        { text: "F. 各退一步，找双方都能接受的方案", scores: { T: 0.5, J: 0.5 } }
       ]},
       { q: "朋友和另一半同时需要你的帮助，你会？", options: [
         { text: "A. 先帮另一半，爱情最重要", scores: { F: 1 } },
         { text: "B. 看谁的事情更紧急更严重", scores: { T: 1 } },
-        { text: "C. 两边都帮，哪怕自己累一点", scores: { F: 0.5, A: 0.5 } },
-        { text: "D. 让另一半等等，朋友的事不能拖", scores: { T: 0.5, P: 0.5 } }
+        { text: "C. 两边都帮，哪怕自己累一点", scores: { F: 1 } },
+        { text: "D. 让另一半等等，朋友的事不能拖", scores: { T: 0.5, P: 0.5 } },
+        { text: "E. 先问清楚两边的情况，再决定", scores: { T: 1 } },
+        { text: "F. 谁先开口求助就先帮谁", scores: { P: 0.5, F: 0.5 } }
       ]},
-      { q: "你觉得在恋爱中，什么最重要？", options: [
-        { text: "A. 忠诚，绝对不能背叛", scores: { J: 0.5, S: 0.5 } },
+      { q: "你觉得在恋爱中，什么最重要？", multi: true, options: [
+        { text: "A. 忠诚，绝对不能背叛", scores: { J: 1 } },
         { text: "B. 有趣，在一起要开心才行", scores: { E: 0.5, F: 0.5, P: 0.5 } },
         { text: "C. 成长，两个人一起变得更好", scores: { T: 1, N: 0.5 } },
-        { text: "D. 默契，不用多说就能懂彼此", scores: { N: 0.5, F: 0.5, I: 0.5 } }
+        { text: "D. 默契，不用多说就能懂彼此", scores: { N: 0.5, F: 0.5, I: 0.5 } },
+        { text: "E. 安全感，知道对方不会离开", scores: { F: 1 } },
+        { text: "F. 自由，彼此都有空间", scores: { E: 0.5, T: 0.5, P: 0.5 } }
       ]},
       // --- 维度4: 生活方式 J/P (Q13-Q16) ---
       { q: "你理想中的恋爱节奏是？", options: [
         { text: "A. 轰轰烈烈，每天都要有新鲜感和惊喜", scores: { E: 1, P: 1 } },
         { text: "B. 细水长流，平淡但稳定最幸福", scores: { J: 1, S: 0.5 } },
         { text: "C. 若即若离，保持距离感更有吸引力", scores: { I: 0.5, T: 0.5 } },
-        { text: "D. 快速升温，看对眼了就直接确定关系", scores: { E: 0.5, P: 0.5, F: 0.5 } }
+        { text: "D. 快速升温，看对眼了就直接确定关系", scores: { E: 0.5, P: 0.5, F: 0.5 } },
+        { text: "E. 慢慢了解，确认合适再确定关系", scores: { J: 1, T: 0.5 } },
+        { text: "F. 顺其自然，不刻意定义关系", scores: { P: 1, N: 0.5 } }
       ]},
       { q: "另一半突然说「我们出去玩吧」，你会？", options: [
         { text: "A. 马上收拾东西出发，说走就走", scores: { P: 1, E: 0.5 } },
         { text: "B. 先查天气、查路线、订好酒店再出发", scores: { J: 1, T: 0.5 } },
         { text: "C. 问问去哪、玩什么，再决定", scores: { T: 0.5 } },
-        { text: "D. 有点犹豫，但对方坚持就去", scores: { A: 0.5, F: 0.5 } }
+        { text: "D. 有点犹豫，但对方坚持就去", scores: { F: 1 } },
+        { text: "E. 先问「都有谁去」，再决定", scores: { T: 0.5, I: 0.5 } },
+        { text: "F. 立刻请假调班，不能错过", scores: { P: 1, E: 0.5 } }
       ]},
       { q: "你们的恋爱日常更接近哪种？", options: [
         { text: "A. 每周都有新计划，不重样", scores: { P: 1, N: 0.5 } },
         { text: "B. 有固定的约会日，仪式感满满", scores: { J: 1, S: 0.5 } },
         { text: "C. 随性，想起来就约，没空就各忙各的", scores: { P: 1, T: 0.5 } },
-        { text: "D. 大部分时间各过各的，周末才见面", scores: { I: 0.5, J: 0.5 } }
+        { text: "D. 大部分时间各过各的，周末才见面", scores: { I: 0.5, J: 0.5 } },
+        { text: "E. 每天都要聊天报备，分享日常", scores: { J: 1 } },
+        { text: "F. 临时起意，想见面就见面", scores: { P: 1 } }
       ]},
       { q: "对方忘记了你们的纪念日，你会？", options: [
-        { text: "A. 超级难过，觉得ta根本不在乎我", scores: { A: 1, F: 1 } },
-        { text: "B. 算了，可能太忙了，自己提醒自己就好", scores: { S: 1, T: 0.5 } },
+        { text: "A. 超级难过，觉得ta根本不在乎我", scores: { F: 1 } },
+        { text: "B. 算了，可能太忙了，自己提醒自己就好", scores: { C: 1, T: 0.5 } },
         { text: "C. 直接说：「你是不是忘了今天什么日子？」", scores: { E: 1, T: 0.5 } },
-        { text: "D. 也不提醒，看ta什么时候能想起来", scores: { A: 0.5, I: 0.5, T: 0.5 } }
+        { text: "D. 也不提醒，看ta什么时候能想起来", scores: { I: 0.5, T: 0.5 } },
+        { text: "E. 嘴上说没事，心里默默记着", scores: { F: 1 } },
+        { text: "F. 当天就订好餐厅，补过一个", scores: { E: 0.5, J: 0.5, F: 0.5 } }
       ]},
-      // --- 维度5: 依恋风格 S/A (Q17-Q20) ---
+      // --- 维度5: 依恋风格 A/C (Q17-Q20) ---
       { q: "另一半很久没回你消息，你会？", options: [
         { text: "A. 疯狂发消息/打电话，直到ta回复", scores: { A: 1 } },
-        { text: "B. 等一等，可能在忙，晚点再说", scores: { S: 1 } },
+        { text: "B. 等一等，可能在忙，晚点再说", scores: { C: 1 } },
         { text: "C. 想很多，ta是不是不喜欢我了", scores: { A: 1, F: 0.5 } },
-        { text: "D. 该干嘛干嘛，不回就算了", scores: { S: 0.5, T: 0.5 } }
+        { text: "D. 该干嘛干嘛，不回就算了", scores: { C: 0.5, T: 0.5 } },
+        { text: "E. 看ta朋友圈/社交动态，猜ta在干嘛", scores: { A: 0.5, F: 0.5 } },
+        { text: "F. 发一条「在忙吗」试探，然后放下手机做自己的事", scores: { C: 0.5, T: 0.5 } }
       ]},
-      { q: "你觉得在感情里，「安全感」意味着？", options: [
-        { text: "A. ta随时让我找到，不玩消失", scores: { A: 1, S: 0 } },
-        { text: "B. ta说过的话能做到，言行一致", scores: { S: 1, T: 0.5 } },
+      { q: "你觉得在感情里，「安全感」意味着？", multi: true, options: [
+        { text: "A. ta随时让我找到，不玩消失", scores: { A: 1 } },
+        { text: "B. ta说过的话能做到，言行一致", scores: { C: 1, T: 0.5 } },
         { text: "C. ta主动报备行程，让我放心", scores: { A: 1, J: 0.5 } },
-        { text: "D. 我们彼此信任，不需要刻意证明", scores: { S: 1 } }
+        { text: "D. 我们彼此信任，不需要刻意证明", scores: { C: 1 } },
+        { text: "E. ta愿意把脆弱的一面给我看", scores: { C: 0.5, F: 0.5 } },
+        { text: "F. ta的未来规划里有我", scores: { A: 0.5, J: 0.5 } }
       ]},
-      { q: "如果让你选一个恋爱超能力，你选？", options: [
+      { q: "如果让你选一个恋爱超能力，你选？", multi: true, options: [
         { text: "A. 读心术——随时知道对方在想什么", scores: { A: 1, F: 0.5 } },
         { text: "B. 时光机——回到最初认识的那一刻", scores: { F: 1, I: 0.5, N: 0.5 } },
         { text: "C. 隐身术——想消失的时候就消失", scores: { I: 0.5, P: 0.5 } },
-        { text: "D. 治愈力——抚平彼此所有的伤痛", scores: { F: 1, S: 0.5 } }
+        { text: "D. 治愈力——抚平彼此所有的伤痛", scores: { F: 1, C: 0.5 } },
+        { text: "E. 暂停键——吵架时能停下来冷静", scores: { T: 0.5, C: 0.5 } },
+        { text: "F. 分身术——恋爱、工作、朋友都不耽误", scores: { E: 0.5, P: 0.5 } }
       ]},
       { q: "一段感情结束时，你通常会？", options: [
         { text: "A. 难过很久，反复回想哪里做错了", scores: { F: 1, A: 0.5, I: 0.5 } },
         { text: "B. 痛一阵子，然后快速走出来", scores: { T: 1, P: 0.5 } },
         { text: "C. 表面没事，但内心很久才愈合", scores: { I: 1, F: 0.5 } },
-        { text: "D. 理性分析原因，当作一次成长", scores: { T: 1, N: 0.5 } }
+        { text: "D. 理性分析原因，当作一次成长", scores: { T: 1, N: 0.5 } },
+        { text: "E. 找朋友倾诉，把情绪都说出来", scores: { E: 0.5, F: 0.5 } },
+        { text: "F. 删掉所有联系方式，彻底翻篇", scores: { T: 0.5, P: 0.5 } }
       ]}
     ];
 
@@ -987,7 +1027,8 @@
         description: "别人说你是浪子——来去自如，抓不住也留不下。你享受恋爱的甜蜜，但绝不接受被控制。你有自己的朋友圈、自己的爱好、自己的空间，爱情只是生活的一部分，不是全部。",
         strengths: ["独立自主，不会过度依赖对方", "情绪稳定，不会因为小事患得患失", "给彼此足够的空间和自由"],
         weaknesses: ["有时候显得太冷淡，让对方觉得你不在乎", "太重视自由，可能会错过需要深耕的感情", "不善于表达脆弱，把所有事情都自己扛"],
-        match: "同样独立、尊重你空间的人。太黏人的类型会让你窒息。最佳搭配：🌊管家、☀️妈妈"
+        match: "同样独立、尊重你空间的人。太黏人的类型会让你窒息。最佳搭配：🌊管家、☀️妈妈",
+        growth: "给自己设一个「不逃跑」的小目标：遇到矛盾先留下来沟通10分钟，再决定要不要走。",
       },
       flame: {
         emoji: "🔥", name: "仆人",
@@ -996,7 +1037,8 @@
         description: "你就是感情里的仆人——对方一句话，你能跑三条街。只要ta开心，你什么都愿意做。你不觉得这是卑微，你觉得这就是爱。你的世界里，ta永远排第一，你排最后也没关系。",
         strengths: ["表达直接，沟通效率高", "热情有感染力，能让对方感受到被爱", "敢爱敢恨，不拖泥带水"],
         weaknesses: ["容易上头太快，还没了解清楚就投入全部", "热情来得快去得也快，容易被说三分钟热度", "有时候太强势，不给对方喘息的空间"],
-        match: "能跟上你节奏、同样热情的人。太闷的类型会让你觉得无聊。最佳搭配：🦋浪子、🌹公主病"
+        match: "能跟上你节奏、同样热情的人。太闷的类型会让你觉得无聊。最佳搭配：🦋浪子、🌹公主病",
+        growth: "热情给出去之前，先问问自己「我想要什么」。爱别人之前，先把自己放回第一位。",
       },
       moon: {
         emoji: "🌙", name: "小祖宗",
@@ -1005,7 +1047,8 @@
         description: "你就是小祖宗——得哄着，得宠着，得被放在第一位。对方回消息慢了0.5秒，你就不开心了。你不是真的生气，你只是想确认自己在ta心里的位置。你渴望被偏爱、被例外、被坚定地选择。",
         strengths: ["共情力强，能敏锐感知对方的情绪", "温柔体贴，愿意为对方付出", "对感情认真，不玩暧昧"],
         weaknesses: ["容易想太多，内耗严重", "太需要安全感，可能会让对方觉得累", "不敢表达真实需求，习惯委屈自己"],
-        match: "耐心、温暖、情绪稳定的人。需要能给你足够安全感。最佳搭配：🌊管家、☀️妈妈"
+        match: "耐心、温暖、情绪稳定的人。需要能给你足够安全感。最佳搭配：🌊管家、☀️妈妈",
+        growth: "下次不安时先别发消息，写下「我担心的是___」，分清事实和想象，再开口。",
       },
       whale: {
         emoji: "🌊", name: "管家",
@@ -1014,7 +1057,8 @@
         description: "你就是感情里的管家——话不多，但什么都安排得明明白白。ta说饿了，你已经点好外卖了；ta说冷了，你外套都递过去了。你不说「我爱你」，但你的行动比谁都诚实。",
         strengths: ["专一可靠，认定了就不轻易放弃", "情绪稳定，是对方最坚实的依靠", "思考深入，能给出有质量的建议"],
         weaknesses: ["太慢热，容易错过喜欢你的人", "不善于表达感情，心里有爱但说不出口", "太理性，有时候忽略了对方的情感需求"],
-        match: "有耐心、不急躁的人。愿意给你时间慢慢打开自己的人。最佳搭配：🌙小祖宗、🔥仆人"
+        match: "有耐心、不急躁的人。愿意给你时间慢慢打开自己的人。最佳搭配：🌙小祖宗、🔥仆人",
+        growth: "每天主动说一句心里话，哪怕只是「今天有点想你」。你的沉默，对方真的会误解。",
       },
       sunflower: {
         emoji: "☀️", name: "妈妈",
@@ -1023,7 +1067,8 @@
         description: "你就是恋爱里的妈妈——无条件包容，无限耐心，谁都想靠着你。你会记住ta爱吃什么、几点要吃药、哪天有重要会议。但没人知道，妈妈也会累，也想被人照顾，也想有人对你说「你辛苦了」。",
         strengths: ["正能量满满，能带动对方的情绪", "包容力强，不斤斤计较", "善于沟通，有问题及时解决"],
         weaknesses: ["总是笑着，有时候对方不知道你也会难过", "太包容，可能会委屈自己", "对谁都好，容易让人觉得你对我和对别人一样"],
-        match: "能读懂你笑容背后情绪的人。不是只会夸你开朗，而是能问你「你还好吗」的人。最佳搭配：🌙小祖宗、🦋浪子"
+        match: "能读懂你笑容背后情绪的人。不是只会夸你开朗，而是能问你「你还好吗」的人。最佳搭配：🌙小祖宗、🦋浪子",
+        growth: "允许自己偶尔当一次「需要被照顾的人」。说出「我今天不太好」，不会失去谁。",
       },
       rose: {
         emoji: "🌹", name: "公主病",
@@ -1032,16 +1077,18 @@
         description: "你就是公主病——出门必须被牵着，消息必须被秒回，纪念日必须被记住。嘴上说着「随便你」，心里想的是「你快来哄我」。你不是真的难伺候，你只是想被宠成小孩。",
         strengths: ["外冷内热，反差萌", "对感情认真负责，不随便开始", "观察力强，能看穿很多事"],
         weaknesses: ["嘴硬心软，容易让对方误解你", "太爱试探，有时候会把人作走", "习惯被动等待，不敢主动表达喜欢"],
-        match: "脸皮厚、不怕你冷脸的人。能看穿你的逞强，坚持留在你身边。最佳搭配：🔥仆人、🌊管家"
+        match: "脸皮厚、不怕你冷脸的人。能看穿你的逞强，坚持留在你身边。最佳搭配：🔥仆人、🌊管家",
+        growth: "想说反话时先停3秒，把「随便」换成「我想吃火锅」。直接表达，比试探更有用。",
       },
       fox: {
-        emoji: "🎭", name: "戏精",
-        keywords: "多变 · 神秘 · 难以捉摸",
+        emoji: "🎭", name: "演员",
+        keywords: "多变 · 入戏 · 情绪丰富",
         color: "#9370DB", colorLight: "#F8F0FF",
-        description: "你就是戏精——ta多看别人一眼，你已经脑补完了一整部出轨大戏。开心了能上天，难过了能入地，你的内心戏能拍80集。你不是故意的，你的情绪就是这么丰富。",
+        description: "你就是演员——ta多看别人一眼，你已经脑补完了一整部出轨大戏。开心了能上天，难过了能入地，你的内心戏能拍80集。你不是故意的，你的情绪就是这么丰富。",
         strengths: ["魅力十足，吸引力强", "适应力强，能应对各种场合", "思维灵活，不会被套路"],
         weaknesses: ["自己都搞不清想要什么", "容易让人觉得不够真诚", "变化太快，对方跟不上你的节奏"],
-        match: "能欣赏你的多变、不要求你「定下来」的人。需要足够的包容度和好奇心。最佳搭配：🏔️军师、🧜‍♀️万人迷"
+        match: "能欣赏你的多变、不要求你「定下来」的人。需要足够的包容度和好奇心。最佳搭配：🏔️军师、🧜‍♀️万人迷",
+        growth: "下次想演的时候，试着说一句真话：「我其实有点在意」。真实比完美更有吸引力。",
       },
       eagle: {
         emoji: "🏔️", name: "军师",
@@ -1050,7 +1097,8 @@
         description: "你就是军师——谈恋爱像在谈项目，每一步都有规划。你会分析ta的性格、评估你们的可能性、计算投入产出比。别人都恋爱脑了，你还在做SWOT分析。爱情对你来说是锦上添花，不是雪中送炭。",
         strengths: ["理性清醒，不会恋爱脑", "有主见，知道自己要什么", "能给对方有价值的建议和帮助"],
         weaknesses: ["太理性，有时候显得冷漠", "标准太高，很难有人完全达标", "不善于表达柔软的一面"],
-        match: "同样优秀、有独立思想的人。不需要你低头仰望，而是能和你并肩飞行。最佳搭配：🦋浪子、🌊管家"
+        match: "同样优秀、有独立思想的人。不需要你低头仰望，而是能和你并肩飞行。最佳搭配：🦋浪子、🌊管家",
+        growth: "在感情里少做一点「分析报告」，多问一句「你现在感觉怎么样」。爱不是项目。",
       },
       sakura: {
         emoji: "🌸", name: "恋爱脑",
@@ -1059,7 +1107,8 @@
         description: "你就是恋爱脑——看个偶像剧能哭三次，刷到甜的情侣视频能傻笑半天。你对爱情有极高的期待，相信命中注定，相信灵魂伴侣，相信童话般的爱情。别人说你「清醒一点」，但你觉得不浪漫的爱情不要也罢。",
         strengths: ["浪漫有创意，能制造美好回忆", "对爱情充满期待，感染力强", "审美在线，注重仪式感"],
         weaknesses: ["理想化，容易对现实失望", "容易沉迷幻想，忽略实际问题", "情绪波动大，需要很多浪漫喂养"],
-        match: "愿意配合你制造浪漫、有创意的人。不需要多有钱，但需要有心。最佳搭配：🔥仆人、🎭戏精"
+        match: "愿意配合你制造浪漫、有创意的人。不需要多有钱，但需要有心。最佳搭配：🔥仆人、🎭演员",
+        growth: "给心动加一个「观察期」：先看对方怎么做，再决定要不要投入全部。",
       },
       clownfish: {
         emoji: "🐠", name: "小丑",
@@ -1068,7 +1117,8 @@
         description: "你就是小丑——朋友圈里的段子手，聊天群里的表情包大户。你用段子和玩笑掩饰内心的不安，用「开玩笑」来说「我喜欢你」，用「无所谓」来避免「被拒绝」。搞笑是你的铠甲，也是你的软肋。",
         strengths: ["幽默风趣，相处轻松", "善于调节气氛，不让场面尴尬", "看似大大咧咧，其实很细心"],
         weaknesses: ["不敢认真面对感情问题", "用玩笑掩饰真心，对方可能当真了", "逃避型，遇到问题习惯绕开"],
-        match: "能看穿你的玩笑、认真对待你每一句话的人。需要耐心帮你卸下伪装。最佳搭配：☀️妈妈、🌊管家"
+        match: "能看穿你的玩笑、认真对待你每一句话的人。需要耐心帮你卸下伪装。最佳搭配：☀️妈妈、🌊管家",
+        growth: "下次想用玩笑带过时，认真说一句「其实我有点难过」。被看见，不会让你更脆弱。",
       },
       treecat: {
         emoji: "🌳", name: "保镖",
@@ -1077,7 +1127,8 @@
         description: "你就是保镖——永远守在ta身边，风雨无阻。别人三天打鱼两天晒网，你每天都准时上线。你不需要轰轰烈烈，你只需要ta平安快乐。你是那种「天塌了我顶着」的人。",
         strengths: ["忠诚可靠，不会轻易变心", "耐心包容，能接受对方的缺点", "善于经营长期关系"],
         weaknesses: ["太稳定，可能缺少新鲜感", "不善表达，付出多但对方感受不到", "害怕改变，即使关系有问题也不愿面对"],
-        match: "珍惜稳定、不喜欢折腾的人。不需要太多惊喜，但需要每天的陪伴。最佳搭配：🌙小祖宗、☀️妈妈"
+        match: "珍惜稳定、不喜欢折腾的人。不需要太多惊喜，但需要每天的陪伴。最佳搭配：🌙小祖宗、☀️妈妈",
+        growth: "把「我来解决」换成「我们一起想办法」。你不需要一个人扛下所有。",
       },
       siren: {
         emoji: "🧜‍♀️", name: "万人迷",
@@ -1086,7 +1137,8 @@
         description: "你就是万人迷——一出场就是焦点，一个眼神就能让人心跳加速。你知道自己的魅力在哪里，也善于运用它。你在感情中占据主动，把对方拿捏得死死的。你不是故意玩弄，你只是太清楚自己要什么。",
         strengths: ["魅力十足，吸引力强", "自信独立，不依附任何人", "善于掌控节奏，不被动"],
         weaknesses: ["太强势，可能让对方有压力", "习惯掌控，不善于示弱", "容易让对方觉得不够真诚"],
-        match: "有自信、不怕被你吸引但也敢于挑战你的人。不能太弱，也不能太强势。最佳搭配：🏔️军师、🎭戏精"
+        match: "有自信、不怕被你吸引但也敢于挑战你的人。不能太弱，也不能太强势。最佳搭配：🏔️军师、🎭演员",
+        growth: "试着在一段关系里放下掌控，允许自己被动一次。被爱，不需要一直赢。",
       }
     };
 
@@ -1101,7 +1153,7 @@
     };
     personalities.flame.fullReport = {
       childhoodPattern: '你的热情和直接，来自你对爱的真诚相信。你见过或者体验过那种「爱就要大声说出来」的环境，你相信感情不应该藏着掖着。你不怕受伤，因为你相信即使这段失败了，下一段会更好。',
-      triggerPoints: '当对方：\n• 不回消息超过半天 → 你会直接打电话或者问「怎么了」\n• 说「我想一个人静静」→ 你会觉得「是不是我做错了什么」\n• 态度戏精 → 你会很烦躁，要么逼ta说清楚要么直接走人\n• 太慢热 → 你会失去耐心，觉得「到底喜不喜欢我」',
+      triggerPoints: '当对方：\n• 不回消息超过半天 → 你会直接打电话或者问「怎么了」\n• 说「我想一个人静静」→ 你会觉得「是不是我做错了什么」\n• 态度忽冷忽热 → 你会很烦躁，要么逼ta说清楚要么直接走人\n• 太慢热 → 你会失去耐心，觉得「到底喜不喜欢我」',
       communicationGuide: '试试这样说：\n❌「你到底怎么想的？」→ ✅「我感受到你最近有点不一样，能和我聊聊吗？」\n❌ 连环发消息 → ✅ 发一条，等2小时，没回再发一条\n❌「不喜欢就算了」→ ✅「我有点不确定你的想法，可以告诉我吗？」',
       loveTimeline: '第1周：你就已经投入了100%的热情\n第1个月：如果对方回应积极，你们会非常甜蜜\n第2-3个月：你的热情可能会让对方有点压力\n第3个月以后：学会把热情转化为稳定的陪伴',
       idealPartner: '你需要一个「能跟上你节奏」的人。ta不怕你的热情，能和你一起疯一起闹，但在你冲动时也能拉住你。太闷、太慢热的人会让你觉得「谈了个寂寞」。最佳搭配：🦋浪子（给你空间但不会冷）、🌹公主病（你的热情能融化ta的壳）',
@@ -1160,7 +1212,7 @@
       triggerPoints: '当对方：\n• 忘了纪念日 → 你会觉得「童话破灭了」\n• 太务实太理性 → 你会觉得ta不懂浪漫\n• 日常太平淡 → 你会怀疑是不是爱消失了\n• 不懂你的暗示 → 你会很失望',
       communicationGuide: '试试这样说：\n❌ 暗示等对方猜 → ✅「我想要一个惊喜，你能帮我实现吗？」\n❌ 因为不够浪漫就生气 → ✅「我需要一个仪式感，我们能不能一起创造？」\n❌ 拿别人比较 → ✅「我希望我们也有这样的时刻」',
       loveTimeline: '第1个月：完美期，一切都像童话\n第2-3个月：现实开始介入，你可能会失落\n第3-6个月：如果你能接受不完美，关系会更深\n6个月以后：学会在平淡中找到浪漫',
-      idealPartner: '你需要一个「愿意配合你制造浪漫」的人。ta不需要多有钱，但需要有心。ta能理解你对仪式感的重视，愿意偶尔给你惊喜。最佳搭配：🔥仆人（热情浪漫）、🎭戏精（有创意）',
+      idealPartner: '你需要一个「愿意配合你制造浪漫」的人。ta不需要多有钱，但需要有心。ta能理解你对仪式感的重视，愿意偶尔给你惊喜。最佳搭配：🔥仆人（热情浪漫）、🎭演员（有创意）',
       growthPlan: '第一步：区分「浪漫」和「现实」——爱情不全是童话\n第二步：自己制造浪漫——不要只等对方\n第三步：发现平淡中的美——一起做饭也是浪漫\n第四步：降低期待——完美的爱情不存在，但真实的爱情很美'
     };
     personalities.clownfish.fullReport = {
@@ -1184,7 +1236,7 @@
       triggerPoints: '当对方：\n• 太主动太热情 → 你会觉得ta太容易到手\n• 不听你的 → 你会不高兴\n• 太独立 → 你会觉得失去了掌控感\n• 看穿你的套路 → 你会换个方式',
       communicationGuide: '试试这样说：\n❌ 操控 → ✅「我希望我们这样，你觉得呢？」\n❌ 太强势 → ✅「我也有不确定的时候，需要你帮忙」\n❌ 不示弱 → ✅「这件事我搞不定，你能帮我吗？」',
       loveTimeline: '第1个月：你展现最大的魅力，ta被你吸引\n第2-3个月：你开始测试ta是否值得你投入\n第3-6个月：如果ta通过了，你会稍微放松掌控\n6个月以后：学会在掌控和信任之间找到平衡',
-      idealPartner: '你需要一个「有自信、不怕被你吸引但也敢于挑战你」的人。ta不能太弱（会被你吃掉），也不能太强势（会打架）。你们需要势均力敌。最佳搭配：🏔️军师（理性独立）、🎭戏精（同样有魅力）',
+      idealPartner: '你需要一个「有自信、不怕被你吸引但也敢于挑战你」的人。ta不能太弱（会被你吃掉），也不能太强势（会打架）。你们需要势均力敌。最佳搭配：🏔️军师（理性独立）、🎭演员（同样有魅力）',
       growthPlan: '第一步：放下掌控——爱情不是权力游戏\n第二步：学会信任——ta可能不会伤害你\n第三步：允许被动——偶尔让ta主动一次\n第四步：展现脆弱——真正的魅力来自真实，不是完美'
     };
 
@@ -1203,7 +1255,7 @@
     function renderQuestion() {
       var q = questions[currentQuestion];
       document.getElementById('questionNum').textContent = '第' + (currentQuestion + 1) + '题';
-      document.getElementById('questionTag').textContent = dimTags[currentQuestion] || '';
+      document.getElementById('questionTag').textContent = (dimTags[currentQuestion] || '') + (q.multi ? ' · 可多选（最多2项）' : '');
       document.getElementById('questionText').textContent = q.q;
       document.getElementById('progressNum').textContent = currentQuestion + 1;
       document.getElementById('progressFill').style.width = ((currentQuestion + 1) * 5) + '%';
@@ -1213,7 +1265,8 @@
 
       q.options.forEach(function(opt, idx) {
         var btn = document.createElement('button');
-        btn.className = 'option-btn' + (answers[currentQuestion] === idx ? ' selected' : '');
+        var sel = answers[currentQuestion] || [];
+        btn.className = 'option-btn' + (sel.indexOf(idx) >= 0 ? ' selected' : '');
         btn.textContent = opt.text;
         btn.onclick = (function(i) { return function() { selectOption(i); }; })(idx);
         container.appendChild(btn);
@@ -1224,16 +1277,34 @@
     }
 
     function selectOption(idx) {
-      answers[currentQuestion] = idx;
+      var q = questions[currentQuestion];
+      if (q.multi) {
+        var arr = answers[currentQuestion] || [];
+        var pos = arr.indexOf(idx);
+        if (pos >= 0) {
+          arr.splice(pos, 1);
+        } else {
+          if (arr.length >= 2) {
+            alert('最多选2项哦～');
+            return;
+          }
+          arr.push(idx);
+        }
+        answers[currentQuestion] = arr;
+      } else {
+        answers[currentQuestion] = [idx];
+      }
+      var sel = answers[currentQuestion] || [];
       var btns = document.querySelectorAll('.option-btn');
       for (var i = 0; i < btns.length; i++) {
-        btns[i].classList.toggle('selected', i === idx);
+        btns[i].classList.toggle('selected', sel.indexOf(i) >= 0);
       }
     }
 
     function nextQuestion() {
-      if (answers[currentQuestion] === undefined) {
-        alert('请先选择一个选项哦～');
+      var sel = answers[currentQuestion];
+      if (!sel || sel.length === 0) {
+        alert(questions[currentQuestion].multi ? '至少选一项哦～' : '请先选择一个选项哦～');
         return;
       }
       if (currentQuestion < 19) {
@@ -1252,15 +1323,18 @@
     }
 
     function calculateResult() {
-      var scores = { E: 0, I: 0, N: 0, S: 0, F: 0, T: 0, J: 0, P: 0, A: 0 };
+      var scores = { E: 0, I: 0, N: 0, S: 0, F: 0, T: 0, J: 0, P: 0, A: 0, C: 0 };
 
       for (var qIdx = 0; qIdx < answers.length; qIdx++) {
-        var ansIdx = answers[qIdx];
-        if (ansIdx === undefined) continue;
-        var optionScores = questions[qIdx].options[ansIdx].scores;
-        for (var key in optionScores) {
-          if (optionScores.hasOwnProperty(key)) {
-            scores[key] += optionScores[key];
+        var sel = answers[qIdx];
+        if (!sel || sel.length === 0) continue;
+        var weight = questions[qIdx].multi ? 0.5 : 1;
+        for (var si = 0; si < sel.length; si++) {
+          var optionScores = questions[qIdx].options[sel[si]].scores;
+          for (var key in optionScores) {
+            if (optionScores.hasOwnProperty(key)) {
+              scores[key] += optionScores[key] * weight;
+            }
           }
         }
       }
@@ -1269,7 +1343,7 @@
       var info = scores.N >= scores.S ? 'N' : 'S';
       var decision = scores.F >= scores.T ? 'F' : 'T';
       var lifestyle = scores.J >= scores.P ? 'J' : 'P';
-      var attach = scores.A > scores.S ? 'A' : 'S';
+      var attach = scores.A > scores.C ? 'A' : 'S';
 
       var combo = energy + info + decision + lifestyle + attach;
 
@@ -1309,19 +1383,22 @@
       var rp = document.getElementById('resultPage');
       rp.style.display = 'block';
 
-      var scores = { E: 0, I: 0, N: 0, S: 0, F: 0, T: 0, J: 0, P: 0, A: 0 };
+      var scores = { E: 0, I: 0, N: 0, S: 0, F: 0, T: 0, J: 0, P: 0, A: 0, C: 0 };
       for (var qIdx = 0; qIdx < answers.length; qIdx++) {
-        var ansIdx = answers[qIdx];
-        if (ansIdx === undefined) continue;
-        var os = questions[qIdx].options[ansIdx].scores;
-        for (var key in os) { if (os.hasOwnProperty(key)) scores[key] += os[key]; }
+        var sel = answers[qIdx];
+        if (!sel || sel.length === 0) continue;
+        var weight = questions[qIdx].multi ? 0.5 : 1;
+        for (var si = 0; si < sel.length; si++) {
+          var os = questions[qIdx].options[sel[si]].scores;
+          for (var key in os) { if (os.hasOwnProperty(key)) scores[key] += os[key] * weight; }
+        }
       }
       var dims = [
         { left: '外向 E', right: '内向 I', lv: scores.E, rv: scores.I, color: '#E8A0BF', dimName: '能量方向' },
         { left: '直觉 N', right: '感觉 S', lv: scores.N, rv: scores.S, color: '#9B8DC7', dimName: '信息处理' },
         { left: '感性 F', right: '理性 T', lv: scores.F, rv: scores.T, color: '#FF6B6B', dimName: '决策方式' },
         { left: '计划 J', right: '灵活 P', lv: scores.J, rv: scores.P, color: '#4682B4', dimName: '生活方式' },
-        { left: '焦虑 A', right: '安全 S', lv: scores.A, rv: scores.S, color: '#FFB347', dimName: '依恋风格' }
+        { left: '焦虑 A', right: '安全 S', lv: scores.A, rv: scores.C, color: '#FFB347', dimName: '依恋风格' }
       ];
 
       var dimsHTML = '';
