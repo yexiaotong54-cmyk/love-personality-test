@@ -907,7 +907,8 @@
         { text: "C. 制造惊喜和浪漫，让你心跳加速", scores: { N: 1, F: 0.5 } },
         { text: "D. 规划未来，让你看到共同的方向", scores: { N: 0.5, T: 0.5, J: 0.5 } },
         { text: "E. 在生活细节上照顾你，记得你爱吃什么", scores: { S: 1 } },
-        { text: "F. 和你聊未来和梦想，让你觉得被理解", scores: { N: 1 } }
+        { text: "F. 和你聊未来和梦想，让你觉得被理解", scores: { N: 1 } },
+        { text: "G. 以上都是，我都想要", scores: {}, all: true }
       ]},
       { q: "吵架后复盘，你更关注？", options: [
         { text: "A. 当时具体说了什么、做了什么", scores: { S: 1 } },
@@ -940,7 +941,8 @@
         { text: "C. 付出太多却没有得到同等回应", scores: { F: 1 } },
         { text: "D. 吵架之后不知道怎么和好", scores: { I: 0.5, T: 0.5 } },
         { text: "E. 对方不够喜欢我，只是在将就", scores: { F: 1 } },
-        { text: "F. 两个人越来越没话说，变成室友", scores: { T: 0.5, I: 0.5 } }
+        { text: "F. 两个人越来越没话说，变成室友", scores: { T: 0.5, I: 0.5 } },
+        { text: "G. 以上都怕", scores: {}, all: true }
       ]},
       { q: "和另一半意见不合时，你通常会？", options: [
         { text: "A. 据理力争，我是对的就必须坚持", scores: { E: 0.5, T: 1 } },
@@ -964,7 +966,8 @@
         { text: "C. 成长，两个人一起变得更好", scores: { T: 1, N: 0.5 } },
         { text: "D. 默契，不用多说就能懂彼此", scores: { N: 0.5, F: 0.5, I: 0.5 } },
         { text: "E. 安全感，知道对方不会离开", scores: { F: 1 } },
-        { text: "F. 自由，彼此都有空间", scores: { E: 0.5, T: 0.5, P: 0.5 } }
+        { text: "F. 自由，彼此都有空间", scores: { E: 0.5, T: 0.5, P: 0.5 } },
+        { text: "G. 以上都重要", scores: {}, all: true }
       ]},
       // --- 维度4: 生活方式 J/P (Q13-Q16) ---
       { q: "你理想中的恋爱节奏是？", options: [
@@ -1014,7 +1017,8 @@
         { text: "C. ta主动报备行程，让我放心", scores: { A: 1, J: 0.5 } },
         { text: "D. 我们彼此信任，不需要刻意证明", scores: { C: 1 } },
         { text: "E. ta愿意把脆弱的一面给我看", scores: { C: 0.5, F: 0.5 } },
-        { text: "F. ta的未来规划里有我", scores: { A: 0.5, J: 0.5 } }
+        { text: "F. ta的未来规划里有我", scores: { A: 0.5, J: 0.5 } },
+        { text: "G. 以上都是", scores: {}, all: true }
       ]},
       { q: "如果让你选一个恋爱超能力，你选？", multi: true, options: [
         { text: "A. 读心术——随时知道对方在想什么", scores: { A: 1, F: 0.5 } },
@@ -1022,7 +1026,8 @@
         { text: "C. 隐身术——想消失的时候就消失", scores: { I: 0.5, P: 0.5 } },
         { text: "D. 治愈力——抚平彼此所有的伤痛", scores: { F: 1, C: 0.5 } },
         { text: "E. 暂停键——吵架时能停下来冷静", scores: { T: 0.5, C: 0.5 } },
-        { text: "F. 分身术——恋爱、工作、朋友都不耽误", scores: { E: 0.5, P: 0.5 } }
+        { text: "F. 分身术——恋爱、工作、朋友都不耽误", scores: { E: 0.5, P: 0.5 } },
+        { text: "G. 以上都要", scores: {}, all: true }
       ]},
       { q: "一段感情结束时，你通常会？", options: [
         { text: "A. 难过很久，反复回想哪里做错了", scores: { F: 1, A: 0.5, I: 0.5 } },
@@ -1212,10 +1217,14 @@
       var q = questions[currentQuestion];
       if (q.multi) {
         var arr = answers[currentQuestion] || [];
+        var isAll = !!(q.options[idx] && q.options[idx].all);
         var pos = arr.indexOf(idx);
         if (pos >= 0) {
           arr.splice(pos, 1);
+        } else if (isAll) {
+          arr = [idx];
         } else {
+          arr = arr.filter(function(i) { return !(q.options[i] && q.options[i].all); });
           if (arr.length >= 2) {
             alert('最多选2项哦～');
             return;
@@ -1254,20 +1263,34 @@
       }
     }
 
+    function addOptionScores(qIdx, idx, scores) {
+      var q = questions[qIdx];
+      var opt = q.options[idx];
+      if (!opt) return;
+      if (opt.all) {
+        var sum = {}, n = 0;
+        for (var oi = 0; oi < q.options.length; oi++) {
+          var o = q.options[oi];
+          if (o.all) continue;
+          n++;
+          for (var k in o.scores) { if (o.scores.hasOwnProperty(k)) sum[k] = (sum[k] || 0) + o.scores[k]; }
+        }
+        if (!n) return;
+        for (var key in sum) { if (sum.hasOwnProperty(key)) scores[key] += sum[key] / n; }
+        return;
+      }
+      var weight = q.multi ? 0.5 : 1;
+      for (var sk in opt.scores) { if (opt.scores.hasOwnProperty(sk)) scores[sk] += opt.scores[sk] * weight; }
+    }
+
     function calculateResult() {
       var scores = { E: 0, I: 0, N: 0, S: 0, F: 0, T: 0, J: 0, P: 0, A: 0, C: 0 };
 
       for (var qIdx = 0; qIdx < answers.length; qIdx++) {
         var sel = answers[qIdx];
         if (!sel || sel.length === 0) continue;
-        var weight = questions[qIdx].multi ? 0.5 : 1;
         for (var si = 0; si < sel.length; si++) {
-          var optionScores = questions[qIdx].options[sel[si]].scores;
-          for (var key in optionScores) {
-            if (optionScores.hasOwnProperty(key)) {
-              scores[key] += optionScores[key] * weight;
-            }
-          }
+          addOptionScores(qIdx, sel[si], scores);
         }
       }
 
@@ -1319,10 +1342,8 @@
       for (var qIdx = 0; qIdx < answers.length; qIdx++) {
         var sel = answers[qIdx];
         if (!sel || sel.length === 0) continue;
-        var weight = questions[qIdx].multi ? 0.5 : 1;
         for (var si = 0; si < sel.length; si++) {
-          var os = questions[qIdx].options[sel[si]].scores;
-          for (var key in os) { if (os.hasOwnProperty(key)) scores[key] += os[key] * weight; }
+          addOptionScores(qIdx, sel[si], scores);
         }
       }
       var dims = [
